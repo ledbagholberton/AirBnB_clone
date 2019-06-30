@@ -10,7 +10,7 @@ for obj_id in all_objs.keys():
 
 print("-- Create a new object --")
 my_model = BaseModel()
-my_model.name = "Holberton COLOMBIA"
-my_model.my_number = 5289
+my_model.name = "Holberton Medellin COLOMBIA"
+my_model.my_number = 5261
 my_model.save()
 print(my_model)

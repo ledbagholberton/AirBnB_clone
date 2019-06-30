@@ -1,7 +1,8 @@
 #!/user/bin/python3
 from datetime import datetime
 from uuid import uuid4
-from models.__init__ import storage
+import models
+
 
 class BaseModel:
     """ BaseModel for AirBnB project """
@@ -23,7 +24,7 @@ class BaseModel:
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """ __str__ """
@@ -32,7 +33,7 @@ class BaseModel:
     def save(self):
         """ Update the update_at """
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """ Returns a dictionary """

@@ -1,6 +1,7 @@
 #!usr/bin/python3
 """ class file_storage """
 import json
+from ..base_model import BaseModel
 
 class FileStorage:
     """ Clase file Storage"""
@@ -30,7 +31,9 @@ class FileStorage:
         json_file = ""
         try:
             with open(FileStorage.__file_path, "r") as my_file:
-                json_file = my_file.read()
-                FileStorage.__objects = json.loads(json_file)
+                json_file = json.loads(my_file.read())
+                for key, value in json_file.items():
+                    json_file.update({key : BaseModel(**value)})
+                FileStorage.__objects = json_file
         except:
             pass
