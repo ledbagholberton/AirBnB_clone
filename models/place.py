@@ -17,6 +17,7 @@ latitude = 0.0
 longitude = 0.0
 amenity_ids = Amenity.id
 
+
 class Place(BaseModel):
     """ Place class """
     def __init__(self, *args, **kwargs):
