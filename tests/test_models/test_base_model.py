@@ -31,11 +31,11 @@ class TestModels(unittest.TestCase):
 
     def setUp(self):
         """ Set a variable """
-        self.my_model = BaseModel()
+        self.my_model = BaseModel
         print("setUp")
 
     def tearDown(self):
-        """ """
+        """ End variable """
         print("tearDown")
 
     @classmethod
@@ -56,6 +56,9 @@ class TestModels(unittest.TestCase):
 
     def test_models_exist(self):
         self.assertTrue(os.path.isfile('my_file.json'))
+
+    def test_models_not_empty(self):
+        self.assertTrue('my_file.json')
 
 if __name__ == '__main__':
     unittest.main()
