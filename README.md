@@ -1,66 +1,64 @@
-Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+![N|Solid](https://i.imgur.com/Nl8vN2G.jpg)
 
-General
-How to create a Python package
-How to create a command interpreter in Python using the cmd module
-What is Unit testing and how to implement it in a large project
-How to serialize and deserialize a Class
-How to write and read a JSON file
-How to manage datetime
-What is an UUID
-What is *args and how to use it
-What is **kwargs and how to use it
-How to handle named arguments in a function
+# 0x00. AirBnB clone - The console
 
-0. README, AUTHORS mandatory
-Write a README.md:
-description of the project
-description of the command interpreter:
-how to start it
-how to use it
-examples
-You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. For format, reference Docker’s AUTHORS page
-Also, we strongly encourage you to use branches and pull requests on Github - it will help you as team to organize your work
+# Description
 
-1. Be PEP8 compliant! mandatory
-Write beautiful code that passes the PEP8 checks.
+First step: Write a command interpreter to manage your AirBnB objects.
+This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration.
 
-Repo:
+# The console
+create your data model
+manage (create, update, destroy, etc) objects via a console / command interpreter
+store and persist objects to a file (JSON file)
+The first piece is to manipulate a powerful storage system. This storage engine will give us an abstraction between “My object” and “How they are stored and persisted”. This means: from your console code (the command interpreter itself) and from the front-end and RestAPI you will build later, you won’t have to pay attention (take care) of how your objects are stored.
 
-GitHub repository: AirBnB_clone
+This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
 
-2. Unittests mandatory
-All your files, classes, functions must be tested with unit tests
+The console will be a tool to validate this storage engine
 
-guillaume@ubuntu:~/AirBnB$ python3 -m unittest discover tests
-...................................................................................
-...................................................................................
-.......................
-----------------------------------------------------------------------
-Ran 189 tests in 13.135s
+# How used the console:
 
-OK
-guillaume@ubuntu:~/AirBnB$
-Note that this is just an example, the number of tests you create can be different from the above example.
+To used this console:
+* `(hbnb)` start: it start after excecuting the ./console.py:
+![N|Solid](https://i.imgur.com/pAuF5t2.jpg)
 
-3. BaseModel mandatory
-Write a class BaseModel that defines all common attributes/methods for other classes:
+* `(hbnb) help`: this command is to give help: if it follows for the name of a command, gives information about that command:
+![N|Solid](https://i.imgur.com/F5nuW1V.jpg)
 
-models/base_model.py
-Public instance attributes:
-id: string - assign with an uuid when an instance is created:
-you can use uuid.uuid4() to generate unique id but don’t forget to convert to a string
-the goal is to have unique id for each BaseModel
-created_at: datetime - assign with the current datetime when an instance is created
-updated_at: datetime - assign with the current datetime when an instance is created and it will be updated every time you change your object
-__str__: should print: [<class name>] (<self.id>) <self.__dict__>
-Public instance methods:
-save(self): updates the public instance attribute updated_at with the current datetime
-to_dict(self): returns a dictionary containing all keys/values of __dict__ of the instance:
-by using self.__dict__, only instance attributes set will be returned
-a key __class__ must be added to this dictionary with the class name of the object
-created_at and updated_at must be converted to string object in ISO format:
-format: %Y-%m-%dT%H:%M:%S.%f (ex: 2017-06-14T22:31:03.285259)
-you can use isoformat() of datetime object
-This method will be the first piece of the serialization/deserialization process: create a dictionary representation with “simple object type” of our BaseModel
+* `(hbnb) create BaseModel`: this command is to create a new BaseModel, and return an "id":
+![N|Solid](https://i.imgur.com/uBOfJLJ.jpg)
+
+* `(hbnb) all BaseModel`: this command display all the existent models:
+![N|Solid](https://i.imgur.com/RlvegsX.jpg)
+
+* `(hbnb) show BaseModel 831252b2-f7d6-4534-bf8b-9461da86a875 `: this command follow by the id of the BaseModel, display only the content of that BaseModel:
+![N|Solid](https://i.imgur.com/zcT3n4j.jpg)
+
+* `(hbnb) destroy BaseModel  cf1c49b8-f9b9-40fd-be86-03861c825c4a`: this command follow by the id of the BaseModel, delete the BaseModel:
+![N|Solid](https://i.imgur.com/IHMrNih.jpg)
+
+* `(hbnb) update BaseModel  271a3ba3-dbec-461b-b8a3-e393cc607d45 first_name: "Jenny"`: this command goes with the BaseModel, id, and the field to add, in the next example we are adding the fiel "first_name":
+![N|Solid](https://i.imgur.com/7SsKong.jpg)
+
+* `(hbnb) quit`: this command is to exit the console:
+![N|Solid](https://i.imgur.com/GvDoGUR.jpg)
+
+### Tasks
+
+Madatory:
+
+| Name | Description |
+| ------ | ------ |
+| 0. README, AUTHORS | Write a README.md, You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository |
+| 1. Be PEP8 compliant! | Write beautiful code that passes the PEP8 checks. |
+| 2. Unittests | All your files, classes, functions must be tested with unit tests, `python3 -m unittest discover tests` |
+| 3. BaseModel | Write a class BaseModel that defines all common attributes/methods for other classes:models/base_model.py. Public instance attributes: id, created_at, updated_at, __str__. Public instance methods: save(self), to_dict(self). |
+| 4. Create BaseModel from dictionary | Now it’s time to re-create an instance with this dictionary representation. |
+| 5. Store first object | Now we can recreate a BaseModel from another one by using a dictionary representation |
+| 6. Console 0.0.1 | Write a program called console.py that contains the entry point of the command interpreter |
+| 7. Console 0.1 | Update your command interpreter (console.py) to have these commands |
+| 8. First User | Write a class User that inherits from BaseModel |
+| 9. More classes! | Write all those classes that inherit from BaseModel |
+| 10. Console 1.0 | Update FileStorage to manage correctly serialization and deserialization of all our new classes: Place, State, City, Amenity and Review. Update your command interpreter (console.py) to allow those actions: show, create, destroy, update and all with all classes created previously. No unittests needed for the console |
+
