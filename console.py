@@ -108,7 +108,11 @@ class HBNBCommand(cmd.Cmd):
                 for key, values in my_objects.items():
                     if key == my_key:
                         my_values = my_objects.get(key)
-                        setattr(my_values, arg[2], arg[3])
+                        setattr(values, my_arg[2], my_arg[3])
+#                        setattr(values, 'updated_at', datetime.now())
+                        values.save()
+                        print ("______", values)
+
             except KeyError:
                 print("** no instance found **")
 
