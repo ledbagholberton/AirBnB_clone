@@ -8,6 +8,7 @@ text = ""
 user_id = User.id
 place_id = Place.id
 
+
 class Review(BaseModel):
     """ Review class """
     def __init__(self, *args, **kwargs):
