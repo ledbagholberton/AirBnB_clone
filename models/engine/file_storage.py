@@ -3,6 +3,7 @@
 import json
 from ..base_model import BaseModel
 
+
 class FileStorage:
     """ Clase file Storage"""
 
@@ -17,7 +18,8 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
-        FileStorage.__objects["{}.{}".format(obj.__class__.__name__, obj.id)] = obj
+        FileStorage.__objects["{}.{}".format(obj.__class__.__name__,
+                                             obj.id)] = obj
 
     def save(self):
         new_dict = {}
@@ -33,7 +35,7 @@ class FileStorage:
             with open(FileStorage.__file_path, "r") as my_file:
                 json_file = json.loads(my_file.read())
                 for key, value in json_file.items():
-                    json_file.update({key : BaseModel(**value)})
+                    json_file.update({key: BaseModel(**value)})
                 FileStorage.__objects = json_file
         except:
             pass
