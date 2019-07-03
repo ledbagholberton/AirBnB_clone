@@ -12,7 +12,7 @@ from ..review import Review
 class FileStorage:
     """ Clase file Storage"""
 
-    __file_path = "my_file.json"
+    __file_path = "file.json"
     __objects = {}
 
     def __init__(self):
