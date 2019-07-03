@@ -5,8 +5,9 @@ from models.place import Place
 from models.user import User
 
 text = ""
-user_id = User.id
-place_id = Place.id
+user_id = ""
+place_id = ""
+
 
 class Review(BaseModel):
     """ Review class """

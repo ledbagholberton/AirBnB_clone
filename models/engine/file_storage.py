@@ -2,12 +2,17 @@
 """ class file_storage """
 import json
 from ..base_model import BaseModel
-
+from ..user import User
+from ..place import Place
+from ..state import State
+from ..city import City
+from ..amenity import Amenity
+from ..review import Review
 
 class FileStorage:
     """ Clase file Storage"""
 
-    __file_path = "my_file.json"
+    __file_path = "file.json"
     __objects = {}
 
     def __init__(self):
@@ -30,12 +35,15 @@ class FileStorage:
             my_file.write(json_file)
 
     def reload(self):
+        my_dict = {"BaseModel" : BaseModel, "User" : User, "State" : State,
+                   "City" : City, "Amenity" : Amenity, "Place" : Place,
+                   "Review" : Review}
+
         json_file = ""
         try:
             with open(FileStorage.__file_path, "r") as my_file:
                 json_file = json.loads(my_file.read())
-                for key, value in json_file.items():
-                    json_file.update({key: BaseModel(**value)})
-                FileStorage.__objects = json_file
+                for key in json_file:
+                    FileStorage.__objects[key] = my_dict[json_file[key]['__class__']](**json_file[key])
         except:
             pass
