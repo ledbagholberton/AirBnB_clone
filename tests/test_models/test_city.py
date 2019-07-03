@@ -31,37 +31,41 @@ class TestModels(unittest.TestCase):
 
     def setUp(self):
         """ Set a variable """
-
         self.city_1 = City()
         print("setUp")
 
     def tearDown(self):
         """ End variable """
-
         print("tearDown")
 
     @classmethod
     def setUpClass(cls):
         """ define class """
-
         print("setUpClass")
 
     @classmethod
     def tearDownClass(cls):
         """ close the class """
-
         print("tearDownClass")
+
+    def test_city_doc(self):
+        """ Check the documentation """
+        self.assertIsNotNone(City.__doc__)
+        self.assertIsNotNone(City.__init__.__doc__)
+
+    def test_place_city(self):
+        """ check if the city name is create """
+        self.assertTrue(hasattr(self.place_1, "__init__"))
+        self.assertTrue(hasattr(self.place_1, "state_id"))
+        self.assertTrue(hasattr(self.place_1, "name"))
 
     def test_city_name(self):
         """ check if the name is create """
-
         self.city_1.name = 'Paris'
         self.assertEqual(self.city_1.name, 'Paris')
 
-
-    def test_user_instance(self):
+    def test_city_instance(self):
         """ check if user_1 is instance of User """
-
         self.assertIsInstance(self.city_1, City)
 
 if __name__ == '__main__':

@@ -131,5 +131,49 @@ class HBNBCommand(cmd.Cmd):
             except KeyError:
                 print("** no instance found **")
 
+    def do_count(self, arg):
+        'Count all instances based on class name.'
+        count = 0
+        my_arg = arg.split(" ")
+        if not arg:
+            my_objects = FileStorage.all(self)
+            for key, values in my_objects.items():
+                my_list.append(str(values))
+            print(my_list)
+        elif my_arg[0] not in my_class:
+            print("** class doesn't exist **")
+        else:
+            my_list = []
+            my_objects = FileStorage.all(self)
+            for key, values in my_objects.items():
+                my_key = key.split(".")
+                if my_key[0] == my_arg[0]:
+                    count += 1
+            print(count)
+
+    def do_BaseModel(self, arg):
+        'Send command based on class BaseModel'
+        my_arg = arg.split(".")
+        the_class = "BaseModel"
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            prim = my_arg[1].find('("')
+            seco = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:prim]
+            my_arg2 = my_arg[1][prim + 2: seco]
+            if my_arg1 == "show":
+                param = "BaseModel" + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+#            elif my_arg1 == "update":
+#                param = 
+
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
