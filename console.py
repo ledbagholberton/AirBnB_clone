@@ -52,7 +52,6 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         'Show command to show an existing instance.'
         my_arg = arg.split(" ")
-        print ("longitud", len(my_arg), "my_arg:", my_arg)
         if not arg:
             print("** class name missing **")
         elif my_arg[0] not in self.my_class:
@@ -133,8 +132,6 @@ class HBNBCommand(cmd.Cmd):
                         my_values = my_objects.get(key)
                         setattr(values, my_arg[2], my_arg[3])
                         values.save()
-                        print ("______", values)
-
             except KeyError:
                 print("** no instance found **")
 
