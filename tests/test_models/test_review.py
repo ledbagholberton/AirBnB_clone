@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import unittest
 import pep8
-from models.amenity import Amenity
+from models.user import User
 from models.engine.file_storage import FileStorage
 
 
@@ -19,8 +19,8 @@ class TestStringMethods(unittest.TestCase):
     """ Check the pep8 """
     def testpep8(self):
         style = pep8.StyleGuide(quiet=True)
-        file1 = "models/amenity.py"
-        file2 = "tests/test_models/test_amenity.py"
+        file1 = "models/review.py"
+        file2 = "tests/test_models/test_review.py"
         check = style.check_files([file1, file2])
         self.assertEqual(check.total_errors, 0,
                          "Found code style errors (and warning).")
@@ -31,7 +31,7 @@ class TestModels(unittest.TestCase):
 
     def setUp(self):
         """ Set a variable """
-        self.amenity_1 = Amenity()
+        self.review_1 = Review()
         print("setUp")
 
     def tearDown(self):
@@ -41,7 +41,6 @@ class TestModels(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """ define class """
-
         print("setUpClass")
 
     @classmethod
@@ -49,24 +48,20 @@ class TestModels(unittest.TestCase):
         """ close the class """
         print("tearDownClass")
 
-    def test_amenity_doc(self):
-        """ Check the documentation """
-        self.assertIsNotNone(Amenity.__doc__)
-        self.assertIsNotNone(Amenity.__init__.__doc__)
+    def test_user_doc(self):
+        self.assertIsNotNone(Review.__doc__)
+        self.assertIsNotNone(Review.__init__.__doc__)
 
     def test_place_city(self):
-        """ check if the city name is create """
+        """ check if the methods exists """
         self.assertTrue(hasattr(self.place_1, "__init__"))
-        self.assertTrue(hasattr(self.place_1, "name"))
+        self.assertTrue(hasattr(self.place_1, "text"))
+        self.assertTrue(hasattr(self.place_1, "user_id"))
+        self.assertTrue(hasattr(self.place_1, "place_id"))
 
-    def test_amenity_name(self):
-        """ check if the name is create """
-        self.amenity_1.name = 'Good'
-        self.assertEqual(self.amenity_1.name, 'Good')
-
-    def test_amenity_instance(self):
-        """ check if amenity_1 is instance of Amenity """
-        self.assertIsInstance(self.amenity_1, Amenity)
+    def test_user_instance(self):
+        """ check if user_1 is instance of User """
+        self.assertIsInstance(self.review_1, Review)
 
 if __name__ == '__main__':
     unittest.main()
