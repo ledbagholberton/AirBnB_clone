@@ -154,10 +154,11 @@ class HBNBCommand(cmd.Cmd):
     def do_BaseModel(self, arg):
         'Send command based on class BaseModel'
         my_arg = arg.split(".")
+        the_class = "BaseModel"
         if my_arg[1] == 'all()':
-            HBNBCommand.do_all(HBNBCommand, "BaseModel")
+            HBNBCommand.do_all(HBNBCommand, the_class)
         elif my_arg[1] == 'count()':
-            HBNBCommand.do_count(HBNBCommand, "BaseModel")
+            HBNBCommand.do_count(HBNBCommand, the_class)
         else:
             prim = my_arg[1].find('("')
             seco = my_arg[1].find('")')
@@ -167,10 +168,11 @@ class HBNBCommand(cmd.Cmd):
                 param = "BaseModel" + " " + my_arg2
                 HBNBCommand.do_show(HBNBCommand, param)
             elif my_arg1 == "destroy":
-                param = "BaseModel" + " " + my_arg2
+                param = the_class + " " + my_arg2
                 HBNBCommand.do_destroy(HBNBCommand, param)
-            elif my_arg1 == "update":
-                
+#            elif my_arg1 == "update":
+#                param = 
+
 
 
 if __name__ == '__main__':
