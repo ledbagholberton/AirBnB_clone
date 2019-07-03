@@ -31,36 +31,42 @@ class TestModels(unittest.TestCase):
 
     def setUp(self):
         """ Set a variable """
-
         self.user_1 = User()
         print("setUp")
 
     def tearDown(self):
         """ End variable """
-
         print("tearDown")
 
     @classmethod
     def setUpClass(cls):
         """ define class """
-
         print("setUpClass")
 
     @classmethod
     def tearDownClass(cls):
         """ close the class """
-
         print("tearDownClass")
+
+    def test_user_doc(self):
+        self.assertIsNotNone(User.__doc__)
+        self.assertIsNotNone(User.__init__.__doc__)
+
+    def test_place_city(self):
+        """ check if the city name is create """
+        self.assertTrue(hasattr(self.place_1, "__init__"))
+        self.assertTrue(hasattr(self.place_1, "email"))
+        self.assertTrue(hasattr(self.place_1, "password"))
+        self.assertTrue(hasattr(self.place_1, "first_name"))
+        self.assertTrue(hasattr(self.place_1, "last_name"))
 
     def test_user_name(self):
         """ check if the name is create """
-
         self.user_1.name = 'Jeniffer'
         self.assertEqual(self.user_1.name, 'Jeniffer')
 
     def test_user_lastname(self):
         """ chaeck if the lastname is create """
-
         self.user_1.lastname = "Vanegas"
         self.assertEqual(self.user_1.lastname, "Vanegas")
 
@@ -72,13 +78,11 @@ class TestModels(unittest.TestCase):
 
     def test_user_password(self):
         """ chaeck if the password is create """
-
         self.user_1.password = "root"
         self.assertEqual(self.user_1.password, "root")
 
     def test_user_instance(self):
         """ check if user_1 is instance of User """
-
         self.assertIsInstance(self.user_1, User)
 
 if __name__ == '__main__':
