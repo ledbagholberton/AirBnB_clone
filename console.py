@@ -14,12 +14,11 @@ from models.review import Review
 class HBNBCommand(cmd.Cmd):
     """ Command Class """
 
-    my_class = {"BaseModel" : BaseModel, "User" : User, "State" : State,
-                "City" : City, "Amenity" : Amenity, "Place" : Place,
-                "Review" : Review}
+    my_class = {"BaseModel": BaseModel, "User": User, "State": State,
+                "City": City, "Amenity": Amenity, "Place": Place,
+                "Review": Review}
     prompt = '(hbnb) '
     file = None
-
 
     def do_EOF(self, arg):
         'EOF command to exit the program'
@@ -34,9 +33,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         'Create command to create a new instance'
-        my_class = {"BaseModel" : BaseModel, "User" : User, "State" : State,
-                    "City" : City, "Amenity" : Amenity, "Place" : Place,
-                    "Review" : Review}
+        my_class = {"BaseModel": BaseModel, "User": User, "State": State,
+                    "City": City, "Amenity": Amenity, "Place": Place,
+                    "Review": Review}
         if not arg:
             print("** class name missing **")
         elif arg in self.my_class:
@@ -47,7 +46,6 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
         else:
             print("** class doesn't exist **")
-
 
     def do_show(self, arg):
         'Show command to show an existing instance.'
@@ -69,7 +67,6 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
             except IndexError:
                 print("** instance id missing **")
-
 
     def do_destroy(self, arg):
         'Deletes an instance based on the class name and id'
