@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import cmd
+import shlex
 from models import storage
 from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
@@ -10,13 +11,14 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+my_class = {"BaseModel": BaseModel, "User": User, "State": State,
+            "City": City, "Amenity": Amenity, "Place": Place,
+            "Review": Review}
+
 
 class HBNBCommand(cmd.Cmd):
     """ Command Class """
 
-    my_class = {"BaseModel": BaseModel, "User": User, "State": State,
-                "City": City, "Amenity": Amenity, "Place": Place,
-                "Review": Review}
     prompt = '(hbnb) '
     file = None
 
@@ -33,12 +35,9 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         'Create command to create a new instance'
-        my_class = {"BaseModel": BaseModel, "User": User, "State": State,
-                    "City": City, "Amenity": Amenity, "Place": Place,
-                    "Review": Review}
         if not arg:
             print("** class name missing **")
-        elif arg in self.my_class:
+        elif arg in my_class:
             for key, value in my_class.items():
                 if key == arg:
                     new_instance = my_class[key]()
@@ -52,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
         my_arg = arg.split(" ")
         if not arg:
             print("** class name missing **")
-        elif my_arg[0] not in self.my_class:
+        elif my_arg[0] not in my_class:
             print("** class doesn't exist **")
         elif len(my_arg) >= 1:
             try:
@@ -73,7 +72,7 @@ class HBNBCommand(cmd.Cmd):
         my_arg = arg.split(" ")
         if not arg:
             print("** class name missing **")
-        elif my_arg[0] not in self.my_class:
+        elif my_arg[0] not in my_class:
             print("** class doesn't exist **")
         elif len(my_arg) >= 1:
             try:
@@ -96,7 +95,7 @@ class HBNBCommand(cmd.Cmd):
             for key, values in my_objects.items():
                 my_list.append(str(values))
             print(my_list)
-        elif my_arg[0] not in self.my_class:
+        elif my_arg[0] not in my_class:
             print("** class doesn't exist **")
         else:
             my_list = []
@@ -109,7 +108,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         'Update the instances based on class name and id.'
-        my_arg = arg.split(" ")
+        my_arg = shlex.split(arg)
         if len(my_arg) == 0:
             print("** class name missing **")
         elif len(my_arg) == 1:
@@ -118,7 +117,7 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
         elif len(my_arg) == 3:
             print("** value missing **")
-        elif my_arg[0] not in self.my_class:
+        elif my_arg[0] not in my_class:
             print("** class doesn't exist **")
         else:
             my_objects = FileStorage.all(self)
