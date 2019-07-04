@@ -53,11 +53,11 @@ class TestModels(unittest.TestCase):
         self.assertIsNotNone(City.__doc__)
         self.assertIsNotNone(City.__init__.__doc__)
 
-    def test_place_city(self):
-        """ check if the city name is create """
-        self.assertTrue(hasattr(self.place_1, "__init__"))
-        self.assertTrue(hasattr(self.place_1, "state_id"))
-        self.assertTrue(hasattr(self.place_1, "name"))
+    def test_city_exist(self):
+        """ check if the city methos exists """
+        self.assertTrue(hasattr(self.city_1, "__init__"))
+        self.assertTrue(hasattr(self.city_1, "state_id"))
+        self.assertTrue(hasattr(self.city_1, "name"))
 
     def test_city_name(self):
         """ check if the name is create """
@@ -65,7 +65,7 @@ class TestModels(unittest.TestCase):
         self.assertEqual(self.city_1.name, 'Paris')
 
     def test_city_instance(self):
-        """ check if user_1 is instance of User """
+        """ check if city_1 is instance of City """
         self.assertIsInstance(self.city_1, City)
 
 if __name__ == '__main__':

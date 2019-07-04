@@ -55,9 +55,9 @@ class TestModels(unittest.TestCase):
         self.assertIsNotNone(Amenity.__init__.__doc__)
 
     def test_place_city(self):
-        """ check if the city name is create """
-        self.assertTrue(hasattr(self.place_1, "__init__"))
-        self.assertTrue(hasattr(self.place_1, "name"))
+        """ check if the amenity methods exists """
+        self.assertTrue(hasattr(self.amenity_1, "__init__"))
+        self.assertTrue(hasattr(self.amenity_1, "name"))
 
     def test_amenity_name(self):
         """ check if the name is create """
