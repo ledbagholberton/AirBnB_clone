@@ -33,6 +33,10 @@ class TestModels(unittest.TestCase):
     def setUp(self):
         """ Set a variable """
         self.user_1 = User()
+        self.user_1.name = 'Jeniffer'
+        self.user_1.lastname = "Vanegas"
+        self.user_1.email = 'airbnb@holbertonshool.com'
+        self.user_1.password = "root"
         print("setUp")
 
     def tearDown(self):
@@ -65,24 +69,26 @@ class TestModels(unittest.TestCase):
 
     def test_user_name(self):
         """ check if the name is create """
-        self.user_1.name = 'Jeniffer'
         self.assertEqual(self.user_1.name, 'Jeniffer')
 
     def test_user_lastname(self):
         """ chaeck if the lastname is create """
-        self.user_1.lastname = "Vanegas"
         self.assertEqual(self.user_1.lastname, "Vanegas")
 
     def test_user_email(self):
         """ chaeck if the email is create """
-
-        self.user_1.email = 'airbnb@holbertonshool.com'
         self.assertEqual(self.user_1.email, 'airbnb@holbertonshool.com')
 
     def test_user_password(self):
         """ chaeck if the password is create """
-        self.user_1.password = "root"
         self.assertEqual(self.user_1.password, "root")
+
+    def test_models_to_dict(self):
+        model_1 = self.user_1.to_dict()
+        self.assertIsInstance(model_1["created_at"], str)
+        self.assertIsInstance(model_1["updated_at"], str)
+        self.assertIsInstance(model_1["email"], str)
+        self.assertIsInstance(model_1["id"], str)
 
     def test_user_instance(self):
         """ check if user_1 is instance of User """

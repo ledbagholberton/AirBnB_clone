@@ -33,6 +33,8 @@ class TestModels(unittest.TestCase):
     def setUp(self):
         """ Set a variable """
         self.place_1 = Place()
+        self.place_1.number_bathrooms = 1
+        self.place_1.longitude = 10.10
         print("setUp")
 
     def tearDown(self):
@@ -70,6 +72,14 @@ class TestModels(unittest.TestCase):
         self.assertTrue(hasattr(self.place_1, "latitude"))
         self.assertTrue(hasattr(self.place_1, "longitude"))
         self.assertTrue(hasattr(self.place_1, "amenity_ids"))
+
+    def test_models_to_dict(self):
+        model_1 = self.place_1.to_dict()
+        self.assertIsInstance(model_1["created_at"], str)
+        self.assertIsInstance(model_1["updated_at"], str)
+        self.assertIsInstance(model_1["number_bathrooms"], int)
+        self.assertIsInstance(model_1["longitude"], float)
+        self.assertIsInstance(model_1["id"], str)
 
     def test_place_is_instance(self):
         """ check if place_1 is instance of Place """

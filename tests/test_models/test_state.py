@@ -67,6 +67,11 @@ class TestModels(unittest.TestCase):
         self.state_1.name = 'Good'
         self.assertEqual(self.state_1.name, 'Good')
 
+    def test_models_to_dict(self):
+        model_1 = self.state_1.to_dict()
+        self.assertIsInstance(model_1["created_at"], str)
+        self.assertIsInstance(model_1["updated_at"], str)
+
     def test_amenity_instance(self):
         """ check if state_1 is instance of State """
         self.assertIsInstance(self.state_1, State)
