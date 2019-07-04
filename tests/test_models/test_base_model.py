@@ -87,7 +87,6 @@ class TestModels(unittest.TestCase):
         storage.reload()
         storage.all()
         self.assertTrue(storage.all(), "Halo")
-        self.assertTrue(hasattr(self.my_model, 'save'))
         self.assertNotEqual(self.my_model.created_at,
                             self.my_model.updated_at)
 
