@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 import pep8
+import os
 from models.review import Review
 from models.engine.file_storage import FileStorage
 
@@ -54,6 +55,8 @@ class TestModels(unittest.TestCase):
 
     def test_review_exist(self):
         """ check if the methods exists """
+        self.review_1.save()
+        self.assertTrue(os.path.isfile('file.json'))
         self.assertTrue(hasattr(self.review_1, "__init__"))
         self.assertTrue(hasattr(self.review_1, "text"))
         self.assertTrue(hasattr(self.review_1, "user_id"))

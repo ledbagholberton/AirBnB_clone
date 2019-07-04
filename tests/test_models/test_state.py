@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 import pep8
+import os
 from models.state import State
 from models.engine.file_storage import FileStorage
 
@@ -56,6 +57,8 @@ class TestModels(unittest.TestCase):
 
     def test_place_city(self):
         """ check if the state methods exists """
+        self.state_1.save()
+        self.assertTrue(os.path.isfile('file.json'))
         self.assertTrue(hasattr(self.state_1, "__init__"))
         self.assertTrue(hasattr(self.state_1, "name"))
 
