@@ -33,6 +33,7 @@ class TestModels(unittest.TestCase):
     def setUp(self):
         """ Set a variable """
         self.my_model = BaseModel()
+        self.my_model.my_number = 55
         print("setUp")
 
     def tearDown(self):
@@ -64,7 +65,6 @@ class TestModels(unittest.TestCase):
 
     def test_models_number(self):
         """ Check if the number is create """
-        self.my_model.my_number = 55
         self.assertEqual(self.my_model.my_number, 55)
 
     def test_models_exist(self):
@@ -91,9 +91,16 @@ class TestModels(unittest.TestCase):
         self.assertNotEqual(self.my_model.created_at,
                             self.my_model.updated_at)
 
-    def test_user_instance(self):
+    def test_models_instance(self):
         """ check if user_1 is instance of User """
         self.assertIsInstance(self.my_model, BaseModel)
+
+    def test_models_to_dict(self):
+        model_1 = self.my_model.to_dict()
+        self.assertIsInstance(model_1["created_at"], str)
+        self.assertIsInstance(model_1["updated_at"], str)
+        self.assertIsInstance(model_1["my_number"], int)
+        self.assertIsInstance(model_1["id"], str)
 
 if __name__ == '__main__':
     unittest.main()

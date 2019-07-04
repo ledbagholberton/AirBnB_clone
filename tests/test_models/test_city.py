@@ -33,6 +33,7 @@ class TestModels(unittest.TestCase):
     def setUp(self):
         """ Set a variable """
         self.city_1 = City()
+        self.city_1.state_id = "100"
         print("setUp")
 
     def tearDown(self):
@@ -66,6 +67,13 @@ class TestModels(unittest.TestCase):
         """ check if the name is create """
         self.city_1.name = 'Paris'
         self.assertEqual(self.city_1.name, 'Paris')
+
+    def test_models_to_dict(self):
+        model_1 = self.city_1.to_dict()
+        self.assertIsInstance(model_1["created_at"], str)
+        self.assertIsInstance(model_1["updated_at"], str)
+        self.assertIsInstance(model_1["state_id"], str)
+        self.assertIsInstance(model_1["id"], str)
 
     def test_city_instance(self):
         """ check if city_1 is instance of City """

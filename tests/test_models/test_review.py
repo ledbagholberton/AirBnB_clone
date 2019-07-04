@@ -33,6 +33,7 @@ class TestModels(unittest.TestCase):
     def setUp(self):
         """ Set a variable """
         self.review_1 = Review()
+        self.review_1.user_id = "asd123"
         print("setUp")
 
     def tearDown(self):
@@ -61,6 +62,13 @@ class TestModels(unittest.TestCase):
         self.assertTrue(hasattr(self.review_1, "text"))
         self.assertTrue(hasattr(self.review_1, "user_id"))
         self.assertTrue(hasattr(self.review_1, "place_id"))
+
+    def test_models_to_dict(self):
+        model_1 = self.review_1.to_dict()
+        self.assertIsInstance(model_1["created_at"], str)
+        self.assertIsInstance(model_1["updated_at"], str)
+        self.assertIsInstance(model_1["user_id"], str)
+        self.assertIsInstance(model_1["id"], str)
 
     def test_user_instance(self):
         """ check if review_1 is instance of Review """
