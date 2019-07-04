@@ -7,10 +7,10 @@ from models.user import User
 
 class Review(BaseModel):
     """ Review class """
-    def __init__(self, *args, **kwargs):
-        """ Init """
         text = ""
         user_id = ""
         place_id = ""
 
+    def __init__(self, *args, **kwargs):
+        """ Init """
         super().__init__(*args, **kwargs)
