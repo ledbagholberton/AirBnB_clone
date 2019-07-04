@@ -199,14 +199,10 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg
-                print(my_arg3)
                 my_arg3  = my_arg3.replace('"', ' ')
-                print(my_arg3)
                 my_arg3 = my_arg3.split(',')
-                print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
                          my_arg3[1], my_arg3[2][1:-1]))
-                print(param)
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_State(self, arg):
