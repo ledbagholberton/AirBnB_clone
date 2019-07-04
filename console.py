@@ -175,9 +175,16 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg
                 my_arg3  = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
-                param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
+                if len(my_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(my_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(my_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
                          my_arg3[1], my_arg3[2][1:-1]))
-                HBNBCommand.do_update(HBNBCommand, param)
+                    HBNBCommand.do_update(HBNBCommand, param)
 
     def do_User(self, arg):
         'Send command based on class User'
@@ -202,9 +209,16 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg
                 my_arg3  = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
-                param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
+                if len(my_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(my_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(my_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
                          my_arg3[1], my_arg3[2][1:-1]))
-                HBNBCommand.do_update(HBNBCommand, param)
+                    HBNBCommand.do_update(HBNBCommand, param)
 
     def do_State(self, arg):
         'Send command based on class State'
@@ -229,9 +243,16 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg
                 my_arg3  = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
-                param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
+                if len(my_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(my_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(my_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
                          my_arg3[1], my_arg3[2][1:-1]))
-                HBNBCommand.do_update(HBNBCommand, param)
+                    HBNBCommand.do_update(HBNBCommand, param)
 
     def do_City(self, arg):
         'Send command based on class City'
@@ -256,9 +277,16 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg
                 my_arg3  = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
-                param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
+                if len(my_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(my_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(my_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
                          my_arg3[1], my_arg3[2][1:-1]))
-                HBNBCommand.do_update(HBNBCommand, param)
+                    HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Amenity(self, arg):
         'Send command based on class Amenity'
@@ -283,9 +311,16 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg
                 my_arg3  = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
-                param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
+                if len(my_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(my_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(my_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
                          my_arg3[1], my_arg3[2][1:-1]))
-                HBNBCommand.do_update(HBNBCommand, param)
+                    HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Place(self, arg):
         'Send command based on class Place'
@@ -310,9 +345,16 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg
                 my_arg3  = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
-                param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
+                if len(my_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(my_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(my_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
                          my_arg3[1], my_arg3[2][1:-1]))
-                HBNBCommand.do_update(HBNBCommand, param)
+                    HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Review(self, arg):
         'Send command based on class Review'
@@ -337,9 +379,16 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg
                 my_arg3  = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
-                param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
+                if len(my_arg3) == 0:
+                    print("** instance id missing **")
+                elif len(my_arg3) == 1:
+                    print("** attribute name missing **")
+                elif len(my_arg3) == 2:
+                    print("** value missing **")
+                else:
+                    param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
                          my_arg3[1], my_arg3[2][1:-1]))
-                HBNBCommand.do_update(HBNBCommand, param)
+                    HBNBCommand.do_update(HBNBCommand, param)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
