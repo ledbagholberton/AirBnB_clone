@@ -10,6 +10,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+import json
 
 my_class = {"BaseModel": BaseModel, "User": User, "State": State,
             "City": City, "Amenity": Amenity, "Place": Place,
@@ -174,7 +175,7 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg.split('"')
                 print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[4][1:-1]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_User(self, arg):
@@ -197,20 +198,10 @@ class HBNBCommand(cmd.Cmd):
                 param = the_class + " " + my_arg2
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
-                my_arg4 = arg.split('{')
                 my_arg3 = arg.split('"')
-                if len(my_arg4) < 1:
-                    param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                                    my_arg3[3], my_arg3[5]))
-                    HBNBCommand.do_update(HBNBCommand, param)
-                else:
-                    print(my_arg3)
-                    the_dict = ""
-                    for i in range(2, len(my_arg3) - 1):
-                        the_dict = the_dict + my_arg3[i]
-                    the_dict = the_dict + my_arg3[i+1][:-1]
-                    the_dict = the_dict[2:]
-                    print(the_dict)
+                param = ("{} {} {} {}".format(the_class, my_arg3[1],
+                         my_arg3[3], my_arg3[4][1:-1]))
+                HBNBCommand.do_update(HBNBCommand, param)
 
     def do_State(self, arg):
         'Send command based on class State'
@@ -233,9 +224,8 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg.split('"')
-                print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[4][1:-1]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_City(self, arg):
@@ -259,9 +249,8 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg.split('"')
-                print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[4][1:-1]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Amenity(self, arg):
@@ -285,9 +274,8 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg.split('"')
-                print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[4][1:-1]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Place(self, arg):
@@ -311,9 +299,8 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg.split('"')
-                print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[4][1:-1]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Review(self, arg):
@@ -337,9 +324,8 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg.split('"')
-                print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[4][1:-1]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
 if __name__ == '__main__':
