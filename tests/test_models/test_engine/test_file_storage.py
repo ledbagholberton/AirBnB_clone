@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 import unittest
 import pep8
-from models.base_model.py import BaseModel
 from models.engine.file_storage import FileStorage
-from models.__init__ import storage
+
 
 def setUpModule():
     """ """
@@ -31,7 +30,6 @@ class TestModels(unittest.TestCase):
     def setUp(self):
         """ Set a variable """
         self.fisto = FileStorage()
-        self.my_model = BaseModel()
         print("setUp")
 
     def tearDown(self):
