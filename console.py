@@ -358,7 +358,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_Review(self, arg):
         'Send command based on class Review'
-        the_class = "Amenity"
+        the_class = "Review"
         my_arg = arg.split(".")
         if my_arg[1] == 'all()':
             HBNBCommand.do_all(HBNBCommand, the_class)
