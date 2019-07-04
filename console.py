@@ -123,13 +123,14 @@ class HBNBCommand(cmd.Cmd):
         else:
             my_objects = FileStorage.all(self)
             my_key = my_arg[0] + "." + my_arg[1]
-            try:
-                for key, values in my_objects.items():
-                    if key == my_key:
-                        my_values = my_objects.get(key)
-                        setattr(values, my_arg[2], my_arg[3])
-                        values.save()
-            except KeyError:
+            flag = 0
+            for key, values in my_objects.items():
+                if key == my_key:
+                    flag = 1
+                    my_values = my_objects.get(key)
+                    setattr(values, my_arg[2], my_arg[3])
+                    values.save()
+            if flag == 0:
                 print("** no instance found **")
 
     def do_count(self, arg):
