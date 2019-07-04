@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 import pep8
+import os
 from models.city import City
 from models.engine.file_storage import FileStorage
 
@@ -55,6 +56,8 @@ class TestModels(unittest.TestCase):
 
     def test_city_exist(self):
         """ check if the city methos exists """
+        self.city_1.save()
+        self.assertTrue(os.path.isfile('file.json'))
         self.assertTrue(hasattr(self.city_1, "__init__"))
         self.assertTrue(hasattr(self.city_1, "state_id"))
         self.assertTrue(hasattr(self.city_1, "name"))

@@ -2,7 +2,7 @@
 import unittest
 import pep8
 import os
-from models.review import Review
+from models.state import State
 from models.engine.file_storage import FileStorage
 
 
@@ -20,8 +20,8 @@ class TestStringMethods(unittest.TestCase):
     """ Check the pep8 """
     def testpep8(self):
         style = pep8.StyleGuide(quiet=True)
-        file1 = "models/review.py"
-        file2 = "tests/test_models/test_review.py"
+        file1 = "models/state.py"
+        file2 = "tests/test_models/test_state.py"
         check = style.check_files([file1, file2])
         self.assertEqual(check.total_errors, 0,
                          "Found code style errors (and warning).")
@@ -32,7 +32,7 @@ class TestModels(unittest.TestCase):
 
     def setUp(self):
         """ Set a variable """
-        self.review_1 = Review()
+        self.state_1 = State()
         print("setUp")
 
     def tearDown(self):
@@ -42,6 +42,7 @@ class TestModels(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """ define class """
+
         print("setUpClass")
 
     @classmethod
@@ -49,22 +50,26 @@ class TestModels(unittest.TestCase):
         """ close the class """
         print("tearDownClass")
 
-    def test_user_doc(self):
-        self.assertIsNotNone(Review.__doc__)
-        self.assertIsNotNone(Review.__init__.__doc__)
+    def test_amenity_doc(self):
+        """ Check the documentation """
+        self.assertIsNotNone(State.__doc__)
+        self.assertIsNotNone(State.__init__.__doc__)
 
-    def test_review_exist(self):
-        """ check if the methods exists """
-        self.review_1.save()
+    def test_place_city(self):
+        """ check if the state methods exists """
+        self.state_1.save()
         self.assertTrue(os.path.isfile('file.json'))
-        self.assertTrue(hasattr(self.review_1, "__init__"))
-        self.assertTrue(hasattr(self.review_1, "text"))
-        self.assertTrue(hasattr(self.review_1, "user_id"))
-        self.assertTrue(hasattr(self.review_1, "place_id"))
+        self.assertTrue(hasattr(self.state_1, "__init__"))
+        self.assertTrue(hasattr(self.state_1, "name"))
 
-    def test_user_instance(self):
-        """ check if review_1 is instance of Review """
-        self.assertIsInstance(self.review_1, Review)
+    def test_amenity_name(self):
+        """ check if the name is create """
+        self.state_1.name = 'Good'
+        self.assertEqual(self.state_1.name, 'Good')
+
+    def test_amenity_instance(self):
+        """ check if state_1 is instance of State """
+        self.assertIsInstance(self.state_1, State)
 
 if __name__ == '__main__':
     unittest.main()

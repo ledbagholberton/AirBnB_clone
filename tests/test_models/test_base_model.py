@@ -69,7 +69,8 @@ class TestModels(unittest.TestCase):
 
     def test_models_exist(self):
         """ Check if the json file and methods exists """
-        self.assertTrue(os.path.isfile('my_file.json'))
+        self.my_model.save()
+        self.assertTrue(os.path.isfile('file.json'))
         self.assertTrue(hasattr(self.my_model, "__init__"))
         self.assertTrue(hasattr(self.my_model, "__str__"))
         self.assertTrue(hasattr(self.my_model, "save"))
@@ -77,7 +78,7 @@ class TestModels(unittest.TestCase):
 
     def test_models_not_empty(self):
         """ Check if the json file is not empty """
-        self.assertTrue('my_file.json')
+        self.assertTrue('file.json')
 
     def test_models_save(self):
         """ Check if the save function works """
