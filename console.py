@@ -153,8 +153,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_BaseModel(self, arg):
         'Send command based on class BaseModel'
-        my_arg = arg.split(".")
         the_class = "BaseModel"
+        my_arg = arg.split(".")
         if my_arg[1] == 'all()':
             HBNBCommand.do_all(HBNBCommand, the_class)
         elif my_arg[1] == 'count()':
@@ -165,15 +165,173 @@ class HBNBCommand(cmd.Cmd):
             my_arg1 = my_arg[1][0:prim]
             my_arg2 = my_arg[1][prim + 2: seco]
             if my_arg1 == "show":
-                param = "BaseModel" + " " + my_arg2
+                param = the_class + " " + my_arg2
                 HBNBCommand.do_show(HBNBCommand, param)
             elif my_arg1 == "destroy":
                 param = the_class + " " + my_arg2
                 HBNBCommand.do_destroy(HBNBCommand, param)
-#            elif my_arg1 == "update":
-#                param = 
+            else:
+                my_arg3 = arg.split('"')
+                print(my_arg3)
+                param = ("{} {} {} {}".format(the_class, my_arg3[1],
+                        my_arg3[3], my_arg3[5]))
+                HBNBCommand.do_update(HBNBCommand, param)
 
+    def do_User(self, arg):
+        'Send command based on class User'
+        the_class = "User"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            prim = my_arg[1].find('("')
+            seco = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:prim]
+            my_arg2 = my_arg[1][prim + 2: seco]
+            if my_arg1 == "show":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                my_arg3 = arg.split('"')
+                print(my_arg3)
+                param = ("{} {} {} {}".format(the_class, my_arg3[1],
+                        my_arg3[3], my_arg3[5]))
+                HBNBCommand.do_update(HBNBCommand, param)
 
+    def do_State(self, arg):
+        'Send command based on class State'
+        the_class = "State"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            prim = my_arg[1].find('("')
+            seco = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:prim]
+            my_arg2 = my_arg[1][prim + 2: seco]
+            if my_arg1 == "show":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                my_arg3 = arg.split('"')
+                print(my_arg3)
+                param = ("{} {} {} {}".format(the_class, my_arg3[1],
+                        my_arg3[3], my_arg3[5]))
+                HBNBCommand.do_update(HBNBCommand, param)
+
+    def do_City(self, arg):
+        'Send command based on class City'
+        the_class = "City"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            prim = my_arg[1].find('("')
+            seco = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:prim]
+            my_arg2 = my_arg[1][prim + 2: seco]
+            if my_arg1 == "show":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                my_arg3 = arg.split('"')
+                print(my_arg3)
+                param = ("{} {} {} {}".format(the_class, my_arg3[1],
+                        my_arg3[3], my_arg3[5]))
+                HBNBCommand.do_update(HBNBCommand, param)
+
+    def do_Amenity(self, arg):
+        'Send command based on class Amenity'
+        the_class = "Amenity"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            prim = my_arg[1].find('("')
+            seco = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:prim]
+            my_arg2 = my_arg[1][prim + 2: seco]
+            if my_arg1 == "show":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                my_arg3 = arg.split('"')
+                print(my_arg3)
+                param = ("{} {} {} {}".format(the_class, my_arg3[1],
+                        my_arg3[3], my_arg3[5]))
+                HBNBCommand.do_update(HBNBCommand, param)
+
+    def do_Place(self, arg):
+        'Send command based on class Place'
+        the_class = "Place"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            prim = my_arg[1].find('("')
+            seco = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:prim]
+            my_arg2 = my_arg[1][prim + 2: seco]
+            if my_arg1 == "show":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                my_arg3 = arg.split('"')
+                print(my_arg3)
+                param = ("{} {} {} {}".format(the_class, my_arg3[1],
+                        my_arg3[3], my_arg3[5]))
+                HBNBCommand.do_update(HBNBCommand, param)
+
+    def do_Review(self, arg):
+        'Send command based on class Review'
+        the_class = "Amenity"
+        my_arg = arg.split(".")
+        if my_arg[1] == 'all()':
+            HBNBCommand.do_all(HBNBCommand, the_class)
+        elif my_arg[1] == 'count()':
+            HBNBCommand.do_count(HBNBCommand, the_class)
+        else:
+            prim = my_arg[1].find('("')
+            seco = my_arg[1].find('")')
+            my_arg1 = my_arg[1][0:prim]
+            my_arg2 = my_arg[1][prim + 2: seco]
+            if my_arg1 == "show":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_show(HBNBCommand, param)
+            elif my_arg1 == "destroy":
+                param = the_class + " " + my_arg2
+                HBNBCommand.do_destroy(HBNBCommand, param)
+            else:
+                my_arg3 = arg.split('"')
+                print(my_arg3)
+                param = ("{} {} {} {}".format(the_class, my_arg3[1],
+                        my_arg3[3], my_arg3[5]))
+                HBNBCommand.do_update(HBNBCommand, param)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
