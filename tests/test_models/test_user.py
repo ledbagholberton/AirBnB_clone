@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 import pep8
+import os
 from models.user import User
 from models.engine.file_storage import FileStorage
 
@@ -54,6 +55,8 @@ class TestModels(unittest.TestCase):
 
     def test_place_city(self):
         """ check if the city name is create """
+        self.user_1.save()
+        self.assertTrue(os.path.isfile('file.json'))
         self.assertTrue(hasattr(self.user_1, "__init__"))
         self.assertTrue(hasattr(self.user_1, "email"))
         self.assertTrue(hasattr(self.user_1, "password"))

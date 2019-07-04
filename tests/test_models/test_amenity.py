@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 import pep8
+import os
 from models.amenity import Amenity
 from models.engine.file_storage import FileStorage
 
@@ -56,6 +57,8 @@ class TestModels(unittest.TestCase):
 
     def test_place_city(self):
         """ check if the amenity methods exists """
+        self.amenity_1.save()
+        self.assertTrue(os.path.isfile('file.json'))
         self.assertTrue(hasattr(self.amenity_1, "__init__"))
         self.assertTrue(hasattr(self.amenity_1, "name"))
 
