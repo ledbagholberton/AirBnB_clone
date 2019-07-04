@@ -174,7 +174,7 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg.split('"')
                 print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[5]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_User(self, arg):
@@ -200,7 +200,7 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg.split('"')
                 print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[5]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_State(self, arg):
@@ -226,7 +226,7 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg.split('"')
                 print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[5]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_City(self, arg):
@@ -252,7 +252,7 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg.split('"')
                 print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[5]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Amenity(self, arg):
@@ -278,7 +278,7 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg.split('"')
                 print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[5]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Place(self, arg):
@@ -304,7 +304,7 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg.split('"')
                 print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[5]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Review(self, arg):
@@ -330,7 +330,7 @@ class HBNBCommand(cmd.Cmd):
                 my_arg3 = arg.split('"')
                 print(my_arg3)
                 param = ("{} {} {} {}".format(the_class, my_arg3[1],
-                        my_arg3[3], my_arg3[5]))
+                         my_arg3[3], my_arg3[5]))
                 HBNBCommand.do_update(HBNBCommand, param)
 
 if __name__ == '__main__':
