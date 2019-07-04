@@ -91,5 +91,9 @@ class TestModels(unittest.TestCase):
         self.assertNotEqual(self.my_model.created_at,
                             self.my_model.updated_at)
 
+    def test_user_instance(self):
+        """ check if user_1 is instance of User """
+        self.assertIsInstance(self.my_model, BaseModel)
+
 if __name__ == '__main__':
     unittest.main()
