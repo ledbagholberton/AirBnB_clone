@@ -82,11 +82,9 @@ class TestModels(unittest.TestCase):
 
     def test_models_save(self):
         """ Check if the save function works """
-        self.my_model.name = "Halo"
+        a = self.my_model.updated_at()
         self.my_model.save()
-        storage.reload()
-        storage.all()
-        self.assertTrue(storage.all(), "Halo")
+        self.assertNotEqual(a, self.my_model.update_at)
         self.assertNotEqual(self.my_model.created_at,
                             self.my_model.updated_at)
 
