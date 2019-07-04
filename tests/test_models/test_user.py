@@ -54,11 +54,11 @@ class TestModels(unittest.TestCase):
 
     def test_place_city(self):
         """ check if the city name is create """
-        self.assertTrue(hasattr(self.place_1, "__init__"))
-        self.assertTrue(hasattr(self.place_1, "email"))
-        self.assertTrue(hasattr(self.place_1, "password"))
-        self.assertTrue(hasattr(self.place_1, "first_name"))
-        self.assertTrue(hasattr(self.place_1, "last_name"))
+        self.assertTrue(hasattr(self.user_1, "__init__"))
+        self.assertTrue(hasattr(self.user_1, "email"))
+        self.assertTrue(hasattr(self.user_1, "password"))
+        self.assertTrue(hasattr(self.user_1, "first_name"))
+        self.assertTrue(hasattr(self.user_1, "last_name"))
 
     def test_user_name(self):
         """ check if the name is create """

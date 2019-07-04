@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import unittest
 import pep8
-from models.user import User
+from models.review import Review
 from models.engine.file_storage import FileStorage
 
 
@@ -52,15 +52,15 @@ class TestModels(unittest.TestCase):
         self.assertIsNotNone(Review.__doc__)
         self.assertIsNotNone(Review.__init__.__doc__)
 
-    def test_place_city(self):
+    def test_review_exist(self):
         """ check if the methods exists """
-        self.assertTrue(hasattr(self.place_1, "__init__"))
-        self.assertTrue(hasattr(self.place_1, "text"))
-        self.assertTrue(hasattr(self.place_1, "user_id"))
-        self.assertTrue(hasattr(self.place_1, "place_id"))
+        self.assertTrue(hasattr(self.review_1, "__init__"))
+        self.assertTrue(hasattr(self.review_1, "text"))
+        self.assertTrue(hasattr(self.review_1, "user_id"))
+        self.assertTrue(hasattr(self.review_1, "place_id"))
 
     def test_user_instance(self):
-        """ check if user_1 is instance of User """
+        """ check if review_1 is instance of Review """
         self.assertIsInstance(self.review_1, Review)
 
 if __name__ == '__main__':
