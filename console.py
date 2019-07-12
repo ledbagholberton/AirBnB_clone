@@ -123,13 +123,14 @@ class HBNBCommand(cmd.Cmd):
         else:
             my_objects = FileStorage.all(self)
             my_key = my_arg[0] + "." + my_arg[1]
-            try:
-                for key, values in my_objects.items():
-                    if key == my_key:
-                        my_values = my_objects.get(key)
-                        setattr(values, my_arg[2], my_arg[3])
-                        values.save()
-            except KeyError:
+            flag = 0
+            for key, values in my_objects.items():
+                if key == my_key:
+                    flag = 1
+                    my_values = my_objects.get(key)
+                    setattr(values, my_arg[2], my_arg[3])
+                    values.save()
+            if flag == 0:
                 print("** no instance found **")
 
     def do_count(self, arg):
@@ -173,7 +174,7 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg
-                my_arg3  = my_arg3.replace('"', ' ')
+                my_arg3 = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
                 if len(my_arg3) == 0:
                     print("** instance id missing **")
@@ -183,7 +184,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                 else:
                     param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
-                         my_arg3[1], my_arg3[2][1:-1]))
+                             my_arg3[1], my_arg3[2][1:-1]))
                     HBNBCommand.do_update(HBNBCommand, param)
 
     def do_User(self, arg):
@@ -207,7 +208,7 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg
-                my_arg3  = my_arg3.replace('"', ' ')
+                my_arg3 = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
                 if len(my_arg3) == 0:
                     print("** instance id missing **")
@@ -217,7 +218,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                 else:
                     param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
-                         my_arg3[1], my_arg3[2][1:-1]))
+                             my_arg3[1], my_arg3[2][1:-1]))
                     HBNBCommand.do_update(HBNBCommand, param)
 
     def do_State(self, arg):
@@ -241,7 +242,7 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg
-                my_arg3  = my_arg3.replace('"', ' ')
+                my_arg3 = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
                 if len(my_arg3) == 0:
                     print("** instance id missing **")
@@ -251,7 +252,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                 else:
                     param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
-                         my_arg3[1], my_arg3[2][1:-1]))
+                             my_arg3[1], my_arg3[2][1:-1]))
                     HBNBCommand.do_update(HBNBCommand, param)
 
     def do_City(self, arg):
@@ -275,7 +276,7 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg
-                my_arg3  = my_arg3.replace('"', ' ')
+                my_arg3 = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
                 if len(my_arg3) == 0:
                     print("** instance id missing **")
@@ -285,7 +286,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                 else:
                     param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
-                         my_arg3[1], my_arg3[2][1:-1]))
+                             my_arg3[1], my_arg3[2][1:-1]))
                     HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Amenity(self, arg):
@@ -309,7 +310,7 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg
-                my_arg3  = my_arg3.replace('"', ' ')
+                my_arg3 = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
                 if len(my_arg3) == 0:
                     print("** instance id missing **")
@@ -319,7 +320,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                 else:
                     param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
-                         my_arg3[1], my_arg3[2][1:-1]))
+                             my_arg3[1], my_arg3[2][1:-1]))
                     HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Place(self, arg):
@@ -343,7 +344,7 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg
-                my_arg3  = my_arg3.replace('"', ' ')
+                my_arg3 = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
                 if len(my_arg3) == 0:
                     print("** instance id missing **")
@@ -353,12 +354,12 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                 else:
                     param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
-                         my_arg3[1], my_arg3[2][1:-1]))
+                             my_arg3[1], my_arg3[2][1:-1]))
                     HBNBCommand.do_update(HBNBCommand, param)
 
     def do_Review(self, arg):
         'Send command based on class Review'
-        the_class = "Amenity"
+        the_class = "Review"
         my_arg = arg.split(".")
         if my_arg[1] == 'all()':
             HBNBCommand.do_all(HBNBCommand, the_class)
@@ -377,7 +378,7 @@ class HBNBCommand(cmd.Cmd):
                 HBNBCommand.do_destroy(HBNBCommand, param)
             else:
                 my_arg3 = arg
-                my_arg3  = my_arg3.replace('"', ' ')
+                my_arg3 = my_arg3.replace('"', ' ')
                 my_arg3 = my_arg3.split(',')
                 if len(my_arg3) == 0:
                     print("** instance id missing **")
@@ -387,7 +388,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** value missing **")
                 else:
                     param = ("{} {} {} {}".format(the_class, my_arg3[0][9:],
-                         my_arg3[1], my_arg3[2][1:-1]))
+                             my_arg3[1], my_arg3[2][1:-1]))
                     HBNBCommand.do_update(HBNBCommand, param)
 
 if __name__ == '__main__':

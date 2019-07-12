@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 import unittest
 import pep8
-from models.base_model.py import BaseModel
 from models.engine.file_storage import FileStorage
 from models.__init__ import storage
+from models.base_model import BaseModel
+
 
 def setUpModule():
     """ """
@@ -30,8 +31,8 @@ class TestModels(unittest.TestCase):
 
     def setUp(self):
         """ Set a variable """
-        self.fisto = FileStorage()
         self.my_model = BaseModel()
+        self.fisto = FileStorage()
         print("setUp")
 
     def tearDown(self):
@@ -64,6 +65,17 @@ class TestModels(unittest.TestCase):
         self.assertTrue(hasattr(self.fisto, "new"))
         self.assertTrue(hasattr(self.fisto, "save"))
         self.assertTrue(hasattr(self.fisto, "reload"))
+
+    def test_models_save(self):
+        """ Check if the save function works """
+        self.my_model.name = "Halo"
+        self.my_model.save()
+        storage.reload()
+        storage.all()
+        self.assertTrue(storage.all(), "Halo")
+        self.assertTrue(hasattr(self.my_model, 'save'))
+        self.assertNotEqual(self.my_model.created_at,
+                            self.my_model.updated_at)
 
 if __name__ == '__main__':
     unittest.main()
