@@ -1,7 +1,13 @@
-.container section{
+.container {
     display: block;
+    position: relative;
+    top: 100px;
+    margin: auto;  
+    height: 100px;
     max-width: 1000px;
     margin-top: 30px;
     margin-bottom: 30px;
-    align-self: center
+    
 }
+
+
