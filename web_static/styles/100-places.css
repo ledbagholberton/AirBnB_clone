@@ -76,3 +76,31 @@ p.info_icon{
 .user {
     margin: 6% 0% 0% 0%;
 }
+
+.amenities {
+    margin-top: 40px;
+    font-size: 16px;
+    border-bottom: #DDDDDD solid 1px;
+}
+
+.reviews {
+    font-size: 16px;
+    border-bottom: #DDDDDD solid 1px;
+    list-style-type: none;
+}
+
+ul .reviews{
+    list-style-type: none;
+}
+
+h3_reviews{
+    font-size: 14px;
+}
+
+p .reviews{
+    font-size: 12px;
+}
+
+li .fa-ul{
+    margin: 0% 0% 0% 0%;
+}
